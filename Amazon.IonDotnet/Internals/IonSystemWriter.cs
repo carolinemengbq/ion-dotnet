@@ -132,6 +132,11 @@ namespace Amazon.IonDotnet.Internals
                 return;
             }
 
+            if (symbolToken.Text == null && symbolToken.Sid > 12)
+            {
+                throw new UnknownSymbolException(symbolToken.Sid);
+            }
+
             this.WriteSymbolAsIs(symbolToken);
         }
 

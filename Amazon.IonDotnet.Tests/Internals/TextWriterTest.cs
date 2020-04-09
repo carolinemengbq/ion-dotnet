@@ -72,6 +72,7 @@ namespace Amazon.IonDotnet.Tests.Internals
             var ionValueFactory = new ValueFactory();
             var datagram = IonLoader.Default.Load(text);
             datagram.Add(ionValueFactory.NewSymbol(newSym));
+            datagram.Add(ionValueFactory.NewSymbol(new SymbolToken(null, 13)));
 
             var sw = new StringWriter();
             var textWriter = IonTextWriterBuilder.Build(sw);
